@@ -4,7 +4,7 @@
 
 #### 1.项目架构：
 
-![image-20200320135117408](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320135117408.png)
+![image-20200320135117408](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320135117408.png)
 
 #### 2.环境以及准备:
 
@@ -21,27 +21,27 @@
 
 ##### 3.1首先需要在Sonarqube里面生成一个Sonarqube的令牌，用来给Jenkins使用。在如下地方设置：
 
-![image-20200320143031931](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320143031931.png)
+![image-20200320143031931](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320143031931.png)
 
 ##### 3.2 在jenkins上部署，SonarQube Scanner 扫描插件：
 
 在jenkins中安装插件：SonarQube Scanner for jenkins，如下：
 
-![image-20200320143445564](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320143445564.png)
+![image-20200320143445564](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320143445564.png)
 
 网页登录jenkins,在Manage Jenkins----Global Tool Conﬁguration----SonarQube Scanner模块中配置 如下设置：
 
-![image-20200320143510707](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320143510707.png)
+![image-20200320143510707](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320143510707.png)
 
 添加Sonarqube凭证，在凭据-系统中添加全局凭据，类型为Secret text并添加如下token（3.1中的token）。
 
-![image-20200320143538518](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320143538518.png)
+![image-20200320143538518](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320143538518.png)
 
 
 
 然后在Manage Jenkins---conﬁguration模块下面Sonarqube servers中如下添加： 
 
-![image-20200320143607417](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320143607417.png)
+![image-20200320143607417](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320143607417.png)
 
 然后在job构建中添加如下信息：
 
@@ -54,23 +54,23 @@ sonar.java.source=1.8
 sonar.projectVersion=1.0
 ```
 
-![image-20200320145620799](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320145620799.png)
+![image-20200320145620799](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320145620799.png)
 
 ##### 3.3 效果如下：
 
 ###### 3.3.1 提交代码到gitlab：
 
-![image-20200320145843614](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320145843614.png)
+![image-20200320145843614](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320145843614.png)
 
 ###### 3.3.2 gitlab通过webhook自动触发jenkins执行任务
 
 ###### 3.3.3 jenkins获取代码，执行sonar分析代码
 
-![image-20200320145921676](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320145921676.png)
+![image-20200320145921676](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320145921676.png)
 
 ###### 3.3.4 在sonar的服务器界面查看分析结果
 
-![image-20200320145955343](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200320145955343.png)
+![image-20200320145955343](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200320145955343.png)
 
 #### 4. Sonarqube与Grafana联动:
 
@@ -225,9 +225,9 @@ export-sonarqube:v0.1
 
 至此influnxdb数据库便采集到了数据：
 
-![image-20200323144050053](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200323144050053.png)
+![image-20200323144050053](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200323144050053.png)
 
 然后数据也会传到Grafana中：
 
-![image-20200323144159835](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200323144159835.png)
+![image-20200323144159835](https://github.com/Darren-zl/sonarqube-san/tree/master/images/image-20200323144159835.png)
 
